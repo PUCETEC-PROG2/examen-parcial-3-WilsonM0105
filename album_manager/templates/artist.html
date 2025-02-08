@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title%}Artists{% endblock title %}
+
+{% block content  %}
+
+<a href="{%url "album_manager:add_artist"%}" class="btn btn-primary mb-4">Agregar Artista</a>
+<table class = "table table-hover">
+	<thead class="bg-light">
+		<tr>
+			<th><h3><strong>Artista</strong></h3></th>
+			<th><h3><strong>Pa&iacute;s de origen</strong></h3></th>
+			<th><h3><strong>Acciones</strong></h3></th>
+		</tr>
+	</thead>
+	{% for artist in artists%}
+	<tbody class="">
+	<tr>
+		<td><h5>{{artist.name}}</h5></td>
+		<td><h5>{{artist.country}}</h5></td>
+		<td>
+			<a href = "{{artist.name}}" class="btn btn-primary">
+				<i class="fa-solid fa-eye"></i>
+			</a>
+			<a href = "edit_artist/{{artist.name}}" class="btn btn-primary">
+				<i class="fa-solid fa-pencil"></i>
+			</a>
+			<a href = "delete_artist/{{artist.name}}" class="btn btn-danger">
+				<i class="fa-solid fa-trash"></i>
+			</a>
+	</tr>
+	</tbody>
+	{% endfor %}
+</table>
+<a href ="/" class = "btn btn-primary my-3">Regresar<a>
+</div>
+{% endblock content %}
